@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BirdsJump : MonoBehaviour
 {
-    public float velocity = 1f;
-    public Rigidbody2D rb2d;
-    public GameManager managerGame;
+	public float velocity = 1f;
+	public Rigidbody2D rb2d;
+	public GameManager managerGame;
 	public GameObject DeathScreen;
 
-    public bool isDead;
+	public bool isDead;
 
 	private void Start()
 	{
 		Time.timeScale = 1f;
 	}
+	
 	void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            rb2d.velocity = Vector2.up * velocity* 3;
-        } 
-    }
+	{
 
+		if (Input.GetMouseButtonDown(0))
+		{
+
+		
+
+			rb2d.velocity = Vector2.up * velocity * 1.75f;
+		}
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -39,5 +44,7 @@ public class BirdsJump : MonoBehaviour
 			Time.timeScale = 0;
 			DeathScreen.SetActive(true);
 		}
+		
 	}
+
 }
